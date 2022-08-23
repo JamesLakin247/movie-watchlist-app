@@ -26,7 +26,7 @@ function SearchPage() {
         })
     }
 
-    useEffect(() => {
+    function findSearch() {
         fetch(`https://www.omdbapi.com/?s=${searchInput}&apikey=cc190004`)
             .then(res => res.json())
             .then(data => {
@@ -37,6 +37,21 @@ function SearchPage() {
                 })
                 setMovieResults(moviesArray)
             })
+    }
+
+    function findImdbData(movieResults) {
+        console.log(movieResults)
+        const newArr = []
+        movieResults.forEach(movie => {
+            fetch(`https://omdbapi.com/?i=${movie.imdbID}&apikey=cc190004`)
+                .then(res => res.json())
+                .then(data => newArr.push(data))
+        })
+        setMovieResults(newArr)
+    }
+
+    useEffect(() => {
+        findSearch()
     }, [searchInput])
 
     console.log(movieResults)
@@ -44,7 +59,7 @@ function SearchPage() {
         <div>
             <div className="container">
                 <input type="text" placeholder="Find your movie" onChange={e => search(e)}/>
-                <button onClick={e => search(e)}>Search</button>
+                <button onClick={() => findImdbData(movieResults)}>Search</button>
                 <h1>{searchInput}</h1>
                 <div>
                     {renderMovieCards()}
