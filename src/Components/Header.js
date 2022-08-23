@@ -3,16 +3,14 @@ import {Link} from "react-router-dom"
 
 function Header() {
     return (
-        <div>
-            <ul>
-                <li>
-                    <Link to="/watchlist">Your Watchlist</Link>
-                </li>
-                <li>
-                    <Link to="/">HomePage</Link>
-                </li>
-            </ul>
-        </div>
+        <header>
+            <div className="container">
+                <div className="links-wrapper">
+                    <Link className="nav-link" to="/watchlist">Your Watchlist</Link>
+                    <Link className="nav-link" to="/">Search Page </Link>
+                </div>
+            </div>
+        </header>
     )
 }
 

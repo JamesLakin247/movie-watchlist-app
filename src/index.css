@@ -3,3 +3,28 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+header {
+  background-image: url(./images/THJJRUhNlEc.png);
+  background-color: #0E0E0E;
+  width: 100%;
+  background-size: cover;
+}
+
+.links-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 25vh;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #fff;
+}

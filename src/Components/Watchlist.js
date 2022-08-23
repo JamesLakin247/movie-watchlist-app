@@ -4,7 +4,7 @@ import React from "react"
 function Watchlist() {
     return (
         <div>
-            <div>
+            <div className="container">
                 <h1>Your Watchlist</h1>
             </div>
         </div>
