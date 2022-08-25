@@ -7,65 +7,72 @@ function SearchPage() {
     const [movieResults, setMovieResults] = useState([])
     const [movieIds, setMovieIds] = useState([])
     
-    function search(e) {
-        setSearchInput(e.target.value)
-        
-        e.preventDefault() //not working
-    }
+function renderMovieCards() {
+        if (Array.isArray(movieResults)) {
+            return movieResults.map(movie => {
 
-    function renderMovieCards() {
-        return movieResults.map(movie => {
-            return (
-                <MovieCard 
-                    key={movie.imdbID} 
-                    title={movie.Title} 
-                    poster={movie.Poster}
-                    year={movie.Year}
-                    plot={movie.Plot}
-                    // rating={movie.Rating}
-                />
-            )
-        })
-    }
-
-    function findSearch() {
-        fetch(`https://www.omdbapi.com/?s=${searchInput}&apikey=cc190004`)
-            .then(res => res.json())
-            .then(data => {
-                const movies = data.Search
-                const moviesArray = movies?.map(movie => {
-                    return movie.imdbID
-                })
-                setMovieIds(moviesArray)
+                return (
+                    <MovieCard 
+                        key={movie.id}
+                        title={movie.original_title} 
+                        poster={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                        year={movie.release_date.substr(1, 4)}
+                        plot={movie.overview}
+                        rating={movie.vote_average}
+                        // genre={movie.Genre}
+                        runtime={movie.runtime}
+                    />
+                )
             })
-    }
-
-    async function findImdbData(imdbIds) {
-        if (Array.isArray(imdbIds)) {
-            const newArr = await Promise.all(
-                imdbIds.map(async (id) => {
-                    const response = await fetch(`https://omdbapi.com/?i=${id}&apikey=cc190004`)
-                    return await response.json()
-                })
-            )
-            setMovieResults(newArr)
         }
     }
 
+    function search(e) {
+        e.preventDefault()
+        setSearchInput(e.target.value)
+    }
+
+    function findSearch() {
+        fetch(`https://api.themoviedb.org/3/search/movie?api_key=b4729e68aa0a741155fee062c4bb8df7&language=en-US&page=1&include_adult=false&query=${searchInput}`)
+            .then(res => res.json())
+            .then(data => {
+                const ids = data.results.map(movie => {
+                    return movie.id
+                })
+                setMovieIds(ids)
+                console.log(movieIds) 
+            })
+    }
+    
+    function findImdbData() {
+        const newArr = []
+        movieIds.forEach(id => {
+            fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=b4729e68aa0a741155fee062c4bb8df7&language=en-US&page=1&include_adult=false`)
+                .then(res => res.json())
+                .then(data => {
+                    newArr.push(data)
+                })
+        })
+        setMovieResults(newArr)
+    }
+    console.log(movieResults)
     useEffect(() => {
+        findImdbData()
         findSearch()
-        findImdbData(movieIds)
     }, [searchInput])
 
-    console.log(movieIds)
+
     console.log(movieResults)
     
     return (
         <div>
             <div className="container">
-                <input type="text" placeholder="Find your movie" onChange={e => search(e)}/>
-                <button onClick={() => findImdbData(movieIds)}>Search</button>
-                <h1>{searchInput}</h1>
+                <div className="search-container">
+                    <div className="search-wrapper">
+                        <input className="search-input" type="text" placeholder="Find your movie" onChange={e => search(e)}/>
+                        <button className="search-btn" onClick={findSearch}>Search</button>
+                    </div>
+                </div>
                 <div>
                     {renderMovieCards()}
                 </div>
