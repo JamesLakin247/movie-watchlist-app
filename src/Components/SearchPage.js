@@ -7,20 +7,22 @@ function SearchPage() {
     const [movieResults, setMovieResults] = useState([])
     const [movieIds, setMovieIds] = useState([])
     
-function renderMovieCards() {
+    function renderMovieCards() {
         if (Array.isArray(movieResults)) {
             return movieResults.map(movie => {
 
                 return (
                     <MovieCard 
+                        // key={movie.id}
+                        // title={movie.original_title} 
+                        // poster={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                        // year={movie.release_date.substr(0, 4)}
+                        // plot={movie.overview}
+                        // rating={movie.vote_average}
+                        // runtime={movie.runtime}
+
                         key={movie.id}
-                        title={movie.original_title} 
-                        poster={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                        year={movie.release_date.substr(1, 4)}
-                        plot={movie.overview}
-                        rating={movie.vote_average}
-                        // genre={movie.Genre}
-                        runtime={movie.runtime}
+                        movie={movie}
                     />
                 )
             })
