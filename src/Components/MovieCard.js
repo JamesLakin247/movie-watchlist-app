@@ -4,9 +4,7 @@ import {Context} from "../Context"
 
 
 function MovieCard(props) {
-    const {addToWatchlist, removeFromWatchlist, watchlist} = useContext(Context)
-
-    const [inWatchlist, setInWatchlist] = useState(false)
+    const {addToWatchlist, removeFromWatchlist, watchlist, checkIfMovieIsInWatchlist} = useContext(Context)
 
     return (
         <div className="card-container">
@@ -25,10 +23,10 @@ function MovieCard(props) {
                 <div className="card-description">
                     <span>{props.movie.overview}</span>
                 </div>
-                <button className="add-btn" /*id={`add-btn-${props.movie.id}`}*/ onClick={() => addToWatchlist(props.movie)}>Save</button>
-                {/* {inWatchlist ? <button onClick={removeFromWatchlist()}>Check Watchlist</button> : <button onClick={() => addToWatchlist(props.movie)}>Check Watchlist</button>} */}
-                <button className="remove-btn" /*id={`remove-btn-${props.movie.id}`}</div>*/ onClick={() => removeFromWatchlist(props.movie.id)}>Remove</button>
-                {/* <button onClick={() => localStorage.clear()}>clear</button> */}
+
+                {checkIfMovieIsInWatchlist(props.movie.id) ? 
+                <button className="remove-btn" /*id={`remove-btn-${props.movie.id}`}</div>*/ onClick={() => removeFromWatchlist(props.movie.id)}>Remove</button> : 
+                <button className="add-btn" /*id={`add-btn-${props.movie.id}`}*/ onClick={() => addToWatchlist(props.movie)}>Save</button>}
             </div>
         </div>
     )

@@ -3,8 +3,8 @@ import React, {createContext, useEffect, useState} from "react"
 const Context = createContext()
 
 function ContextProvider({children}) {
-    const [isInWatchlist, setIsInWatchlist] = useState(false)
     const [watchlist, setWatchlist] = useState(localStorage.getItem("watchlist") ? JSON.parse(localStorage.getItem("watchlist")) : [])
+    const [watchlistIds, setWatchlistIds] = useState([])
 
     useEffect(() => {
         localStorage.setItem("watchlist", JSON.stringify(watchlist))
@@ -15,12 +15,13 @@ function ContextProvider({children}) {
     // }
 
     function checkIfMovieIsInWatchlist(movieId) {
-        return watchlist.includes(movieId)
+        return watchlistIds.includes(movieId)
     }
   
     function addToWatchlist(movie) {
         setWatchlist(prevState => [...prevState, movie])
-        console.log(watchlist)
+        setWatchlistIds(prevState => [...prevState, movie.id])
+        console.log(watchlistIds)
         // document.getElementById(`remove-btn-${movie.id}`).style.display = "block"
         // document.getElementById(`add-btn-${movie.id}`).style.display = "none"
     }
@@ -28,7 +29,10 @@ function ContextProvider({children}) {
     function removeFromWatchlist(id) {
         // localStorage.removeItem("watchlist")
         const newArr = watchlist.filter(movie => movie.id !== id)
+        const newIds = watchlistIds.filter(idArrValue => idArrValue !== id)
         setWatchlist(newArr)
+        setWatchlistIds(newIds)
+        console.log(watchlistIds)
         // document.getElementById(`remove-btn-${id}`).style.display = "none"
         // document.getElementById(`add-btn-${id}`).style.display = "block"
     }
@@ -38,7 +42,7 @@ function ContextProvider({children}) {
     // }
 
     return (
-        <Context.Provider value={{isInWatchlist, watchlist, addToWatchlist, removeFromWatchlist}}>
+        <Context.Provider value={{watchlist, addToWatchlist, removeFromWatchlist, checkIfMovieIsInWatchlist}}>
             {children}
         </Context.Provider>
     )
