@@ -3,12 +3,17 @@ body {
   margin: 0;
   padding: 0;
   overflow-y: scroll;
+  background-color: #5c5c5c;
 }
 
 .container {
   width: 90%;
   max-width: 800px;
   margin: 0 auto;
+}
+
+h1 {
+  margin: 0;
 }
 
 header {
@@ -46,10 +51,12 @@ header {
 .search-input {
   width: 80%;
   height: 2.5em;
+  border: 1px solid lightgray;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   border-right: none;
   text-indent: 10px;
+
 }
 
 .search-btn {
@@ -61,28 +68,59 @@ header {
 
 /* Movie Card Template*/
 .card-container {
+  background-color: #2a2b2c;
+  color: #fff;
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   box-shadow: 0px 0px 8px #2a2b2c;
   border-radius: 8px;
   border: none;
   margin-bottom: 1.25em;
 }
-
+/* card img */
 .card-poster-container {
   width: 30%;
+  margin: 10px;
 }
 
 .card-poster-img {
-  width: 200px;
+  width: 100px;
+  border: 20px;
+  overflow: hidden;
+}
+/* card body */
+.card-body-container {
+  width: 70%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-header {
+    
+}
+
+.card-info {
+  display: flex;
+}
+
+.card-runtime {
+  margin-left: 40px;
+}
+
+button {
+  border: none;
 }
 
 .add-btn {
-
+  background-color: green;
+  color: #fff;
+  border-radius: 5px;
+  padding: 4px 20px;
 }
 
 .remove-btn {
-
+  background-color: red;
+  border-radius: 5px;
 }

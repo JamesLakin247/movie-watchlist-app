@@ -4,10 +4,11 @@ const Context = createContext()
 
 function ContextProvider({children}) {
     const [watchlist, setWatchlist] = useState(localStorage.getItem("watchlist") ? JSON.parse(localStorage.getItem("watchlist")) : [])
-    const [watchlistIds, setWatchlistIds] = useState([])
+    const [watchlistIds, setWatchlistIds] = useState(localStorage.getItem("watchlistIds") ? JSON.parse(localStorage.getItem("watchlistIds")) : [])
 
     useEffect(() => {
         localStorage.setItem("watchlist", JSON.stringify(watchlist))
+        localStorage.setItem("watchlistIds", JSON.stringify(watchlistIds))
     }, [watchlist])
   
     // function toggleWatchlist() {

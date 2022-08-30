@@ -5,6 +5,12 @@ import {Context} from "../Context"
 
 function MovieCard(props) {
     const {addToWatchlist, removeFromWatchlist, watchlist, checkIfMovieIsInWatchlist} = useContext(Context)
+    const [width, setWidth] = useState(window.innerWidth)
+
+    function updateWidth() {
+        setWidth(window.innerWidth);
+      }
+    window.addEventListener('resize', updateWidth)
 
     return (
         <div className="card-container">
@@ -14,14 +20,14 @@ function MovieCard(props) {
             <div className="card-body-container">
                 <div className="card-header">
                     <h3>{props.movie.title}</h3>
-                    <span>{props.movie.release_date.substr(0, 4)}</span>
+                    <span>{props.movie.release_date}</span>
                 </div>
                 <div className="card-info">
                     <span>{props.movie.vote_average}</span>
-                    <span>{props.movie.runtime}</span>
+                    <span className="card-runtime">{`${props.movie.runtime} min`}</span>
                 </div>
                 <div className="card-description">
-                    <span>{props.movie.overview}</span>
+                    {width > 500 && <span>{`${props.movie.overview.substr(0, 100)}...`}</span>}
                 </div>
 
                 {checkIfMovieIsInWatchlist(props.movie.id) ? 
