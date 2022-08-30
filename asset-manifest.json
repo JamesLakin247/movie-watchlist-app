@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/movie-watchlist-app/static/css/main.073c9b0a.css",
-    "main.js": "/movie-watchlist-app/static/js/main.147cf6db.js",
+    "main.css": "/movie-watchlist-app/static/css/main.6390cfdc.css",
+    "main.js": "/movie-watchlist-app/static/js/main.3b1baef9.js",
     "static/js/787.977d19c5.chunk.js": "/movie-watchlist-app/static/js/787.977d19c5.chunk.js",
-    "static/media/logo.svg": "/movie-watchlist-app/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/THJJRUhNlEc.png": "/movie-watchlist-app/static/media/THJJRUhNlEc.1c5f8c0a20400806cf4a.png",
+    "static/media/star-icon.svg": "/movie-watchlist-app/static/media/star-icon.b46dd8ce28dc4e75771a8890ad7e7297.svg",
     "index.html": "/movie-watchlist-app/index.html",
-    "main.073c9b0a.css.map": "/movie-watchlist-app/static/css/main.073c9b0a.css.map",
-    "main.147cf6db.js.map": "/movie-watchlist-app/static/js/main.147cf6db.js.map",
+    "main.6390cfdc.css.map": "/movie-watchlist-app/static/css/main.6390cfdc.css.map",
+    "main.3b1baef9.js.map": "/movie-watchlist-app/static/js/main.3b1baef9.js.map",
     "787.977d19c5.chunk.js.map": "/movie-watchlist-app/static/js/787.977d19c5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.147cf6db.js"
+    "static/css/main.6390cfdc.css",
+    "static/js/main.3b1baef9.js"
   ]
 }
