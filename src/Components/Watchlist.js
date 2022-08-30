@@ -35,6 +35,7 @@ function Watchlist() {
 
     return (
         <div>
+            <div className="watchlist-page"></div>
             <div className="container">
                 {renderMovieCards()}
             </div>

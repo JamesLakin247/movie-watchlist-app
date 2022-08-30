@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react"
 import {Context} from "../Context"
 
+import star from "../images/star-icon.svg"
+
 
 
 function MovieCard(props) {
@@ -20,10 +22,10 @@ function MovieCard(props) {
             <div className="card-body-container">
                 <div className="card-header">
                     <h3>{props.movie.title}</h3>
-                    <span>{props.movie.release_date}</span>
                 </div>
                 <div className="card-info">
-                    <span>{props.movie.vote_average}</span>
+                    <span>{props.movie.release_date.substr(0, 4)}</span>
+                    <span><img src={star} alt=""/>{props.movie.vote_average}</span>
                     <span className="card-runtime">{`${props.movie.runtime} min`}</span>
                 </div>
                 <div className="card-description">
