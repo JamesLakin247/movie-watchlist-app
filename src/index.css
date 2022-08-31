@@ -4,6 +4,7 @@ body {
   padding: 0;
   overflow-y: scroll;
   background-color: #5c5c5c;
+  font-family: 'Roboto', sans-serif;
 }
 
 .container {
@@ -14,6 +15,10 @@ body {
 
 h1 {
   margin: 0;
+}
+
+button {
+  border: none;
 }
 
 header {
@@ -96,6 +101,20 @@ h3 {
   border-radius: 8px;
   overflow: hidden;
 }
+
+.card-poster-img-null {
+  width: 100px;
+  height: 150px;
+  background-color: #191919;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.null-poster-text {
+  color: #404040;
+  text-align: center;
+}
 /* card body */
 .card-body-container {
   width: 60%;
@@ -109,17 +128,13 @@ h3 {
 }
     /* release date, rating, runtime */
 .card-info {
-  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
+  margin: auto 0;
 }
 
 .card-runtime {
-  margin-left: 40px;
-}
 
-button {
-  border: none;
 }
 
 .add-btn {
@@ -129,6 +144,9 @@ button {
   padding: 4px 20px;
   width: 80%;
   align-self: center;
+  margin-top: auto;
+  margin-bottom: 15px;
+  transform: skew(-10deg);
 }
 
 .remove-btn {
@@ -138,6 +156,8 @@ button {
   padding: 4px 20px;
   width: 80%;
   align-self: center;
+  margin-top: auto;
+  margin-bottom: 15px;
 }
 
 .watchlist-page {

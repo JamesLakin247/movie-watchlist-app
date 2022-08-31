@@ -14,10 +14,17 @@ function MovieCard(props) {
       }
     window.addEventListener('resize', updateWidth)
 
+    const moviePoster = props.movie.poster_path ? 
+        <img className="card-poster-img" src={`https://image.tmdb.org/t/p/original${props.movie.poster_path}`} alt=""/> : 
+        <div className="card-poster-img-null">
+            <p className="null-poster-text">Poster Unavailable</p>
+        </div>
+
+
     return (
         <div className="card-container">
             <div className="card-poster-container">
-                <img className="card-poster-img" src={`https://image.tmdb.org/t/p/original${props.movie.poster_path}`} alt=""/>
+                {moviePoster}
             </div>
             <div className="card-body-container">
                 <div className="card-header">
