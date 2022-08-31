@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/movie-watchlist-app/static/css/main.6390cfdc.css",
-    "main.js": "/movie-watchlist-app/static/js/main.a0784e0a.js",
+    "main.js": "/movie-watchlist-app/static/js/main.797e879a.js",
     "static/js/787.977d19c5.chunk.js": "/movie-watchlist-app/static/js/787.977d19c5.chunk.js",
     "static/media/THJJRUhNlEc.png": "/movie-watchlist-app/static/media/THJJRUhNlEc.1c5f8c0a20400806cf4a.png",
     "static/media/star-icon.svg": "/movie-watchlist-app/static/media/star-icon.b46dd8ce28dc4e75771a8890ad7e7297.svg",
     "index.html": "/movie-watchlist-app/index.html",
     "main.6390cfdc.css.map": "/movie-watchlist-app/static/css/main.6390cfdc.css.map",
-    "main.a0784e0a.js.map": "/movie-watchlist-app/static/js/main.a0784e0a.js.map",
+    "main.797e879a.js.map": "/movie-watchlist-app/static/js/main.797e879a.js.map",
     "787.977d19c5.chunk.js.map": "/movie-watchlist-app/static/js/787.977d19c5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6390cfdc.css",
-    "static/js/main.a0784e0a.js"
+    "static/js/main.797e879a.js"
   ]
 }
