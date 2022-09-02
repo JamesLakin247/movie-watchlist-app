@@ -40,8 +40,8 @@ function MovieCard(props) {
                 </div>
 
                 {checkIfMovieIsInWatchlist(props.movie.id) ? 
-                <button className="remove-btn" /*id={`remove-btn-${props.movie.id}`}</div>*/ onClick={() => removeFromWatchlist(props.movie.id)}>Remove</button> : 
-                <button className="add-btn" /*id={`add-btn-${props.movie.id}`}*/ onClick={() => addToWatchlist(props.movie)}>Save</button>}
+                <button className="toggle-btn remove-btn" /*id={`remove-btn-${props.movie.id}`}</div>*/ onClick={() => removeFromWatchlist(props.movie.id)}>Remove</button> : 
+                <button className="toggle-btn add-btn" /*id={`add-btn-${props.movie.id}`}*/ onClick={() => addToWatchlist(props.movie)}>Save</button>}
             </div>
         </div>
     )
